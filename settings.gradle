@@ -1,0 +1,4 @@
+rootProject.name = 'waste-logics'
+include 'common'
+include 'web-ui'
+
