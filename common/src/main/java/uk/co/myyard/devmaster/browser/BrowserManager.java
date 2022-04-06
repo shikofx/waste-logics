@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +16,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class BrowserManager {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BrowserManager.class);
-    private static final String HUB_HOST = "hub-host";
     private static final String BROWSER = "browser";
 
     private final BrowserProperties properties;
@@ -118,6 +113,6 @@ public class BrowserManager {
     }
 
     public int getImplicitlyWait() {
-        return  implicitlyWait;
+        return implicitlyWait;
     }
 }
