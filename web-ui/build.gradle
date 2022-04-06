@@ -1,14 +1,5 @@
-plugins {
-    id 'java'
-}
-
-version 'unspecified'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
+
     testImplementation group: 'org.junit.jupiter',
             name: 'junit-jupiter-params',
             version: "$junitJupiterVesion"
@@ -21,9 +12,37 @@ dependencies {
             name: 'junit-platform-runner',
             version: "$junitPlatformVersion"
 
+    testImplementation group: 'org.assertj',
+            name: 'assertj-core',
+            version: "$assertJVersion"
+
     testImplementation project(':common')
 }
 
-test {
+tasks.withType(Test).configureEach() {
     useJUnitPlatform()
+    if (System.getProperty('browser') != null) {
+        systemProperty 'browser', System.getProperty('browser')
+    } else {
+        System.setProperty('browser', "$defaultBrowser")
+    }
+
+    if (System.getProperty('browserVersion') != null) {
+        systemProperty 'browserVersion', System.getProperty('browserVersion')
+    } else {
+        System.setProperty('browserVersion', "$defaultBrowserVersion")
+    }
 }
+
+tasks.register('webtests', Test).configure() {
+    description = "UI tests Devmaster portal"
+    group = "verification"
+
+    useJUnitPlatform {
+        includeTags "ui"
+    }
+}
+
+project.description = "UI tests Devmaster portal"
+project.archivesBaseName = "$applicationName" + '-ui-tests'
+project.version = "$applicationVersion"

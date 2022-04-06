@@ -14,6 +14,13 @@ dependencies {
             name: 'webdrivermanager',
             version: "$webdriverManagerVersion"
 
+    implementation group: 'org.seleniumhq.selenium',
+            name: 'selenium-java',
+            version: "${seleniumVersion}"
+
+    implementation group: 'org.assertj',
+            name: 'assertj-core',
+            version: "$assertJVersion"
 }
 
 test {
