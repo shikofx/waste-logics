@@ -41,7 +41,7 @@ class InvoiceTableTest extends TestBase {
     @CsvSource({
             "Flat charge, £100.00",
             "per tonne, £4.60",
-            "Item, £110.00"
+            "Item, 110.00"
     })
     void testTotalValuesForOrder(String wasteEntity, String wasteTotal) {
         table.findWasteByEntityAndOrderId(ORDER_ID, wasteEntity)
