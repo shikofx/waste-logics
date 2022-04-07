@@ -19,7 +19,7 @@ public class InvoiceTableBot {
         wasteItems = getWasteItems();
     }
 
-    public InvoiceTableBot updateWasteLids() {
+    public InvoiceTableBot updateWasteList() {
         wasteItems = getWasteItems();
         return this;
     }
